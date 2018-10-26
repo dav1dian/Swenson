@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="category.products" template="Magento_Catalog::category/products.phtml">
+            <block class="Magento\Catalog\Block\Product\ListProduct" name="category.products.list" as="product_list"
+                   template="Swenson_Tracklist::list/list.phtml" >
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="track-list" xsi:type="array">
+                                <item name="component" xsi:type="string">Swenson_Tracklist/js/view/list</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Swenson_Tracklist/view/list</item>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="track-item" xsi:type="array">
+                                        <item name="component" xsi:type="string">Swenson_Tracklist/js/view/item</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">Swenson_Tracklist/view/item</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

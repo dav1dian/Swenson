@@ -1,0 +1,28 @@
+<!-- ko foreach: getTrackList()() -->
+    <li>
+        <div class="track-content">
+            <p data-bind="text: trackName"></p><p data-bind="text: artist"></p><p>
+            <input type="text" data-bind="value: bpm, event: { change: $parent.updateObject }"></p><p>
+            <button class="action remove" data-bind="click: $parent.removeItem" title="Remove"></button></p>
+        </div>
+        <div class="gap">
+            <p class="add-gap" data-bind="click: $parent.showGap, css: showGap ? 'active': ''">
+                <span class="add">+ Add Gap</span>
+                <span class="remove">- Remove Gap</span>
+            </p>
+            <div class="gap-box" data-bind="visible: showGap">
+                <select data-bind="value: gap, event: { change: $parent.updateObject}" name="" id="">
+                    <option value="3">3 sec</option>
+                    <option value="5">5 sec</option>
+                    <option value="10">10 sec</option>
+                </select>
+            </div>
+        </div>
+    </li>
+<!-- /ko -->
+
+
+
+
+
+

@@ -1,0 +1,124 @@
+@grey__primary: #f4f4f4;
+@grey__secondary: #bababa;
+@darkGrey: #4c4748;
+@cyan: #22d7ba;
+@inputWidth: 100px;
+
+p {
+    margin: 0;
+}
+
+.font-mixin(@color: @darkGrey){
+    font-size: 14px;
+    font-weight: bold;
+    color: @color;
+}
+
+.box-mixin(){
+    background: @grey__primary;
+    border: 1px solid @grey__secondary;
+    padding: 5px 10px;
+}
+
+.heading {
+    margin-bottom: 30px;
+    .font-mixin();
+    .box-mixin();
+
+    > div {
+        display: inline-block;
+        width: 30%;
+
+        &:last-child {
+            width: 10%;
+        }
+
+        &:nth-last-child(2) {
+            text-align: center;
+        }
+    }
+}
+
+.sortable-list {
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+
+        input {
+            text-align: center;
+            .font-mixin();
+        }
+
+        > li {
+            margin-top: 5px;
+            cursor: grab;
+            .lib-clearfix();
+            .box-mixin();
+            .font-mixin();
+            .lib-css(border-radius, 5px);
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .track-content {
+            > p {
+                display: inline-block;
+                vertical-align: middle;
+                width: 30%;
+
+                &:last-child {
+                    width: 10%;
+                }
+
+                &:nth-last-child(2) {
+                    text-align: center;
+                }
+            }
+
+            input {
+                background: none;
+                width: @inputWidth;
+                border: none;
+            }
+
+            .remove {
+                &:before {
+                    content: '\e616';
+                    font-family: 'icons-blank-theme';
+                }
+            }
+        }
+
+        .gap {
+            text-align: center;
+
+            select {
+                width: @inputWidth;
+            }
+
+            .add-gap {
+                cursor: pointer;
+                color: @cyan;
+                .remove {
+                    display: none;
+                }
+                &.active {
+                    .remove {
+                        display: block;
+                    }
+                    .add {
+                        display: none;
+                    }
+                }
+            }
+
+            &-box {
+                padding-top: 10px;
+            }
+        }
+    }
+}

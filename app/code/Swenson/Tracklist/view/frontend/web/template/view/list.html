@@ -1,0 +1,20 @@
+<div class="sortable-list">
+    <div>
+        <h1>Music list</h1>
+    </div>
+    <div class="heading">
+        <div>Track Name</div><div>Artist</div><div>BPM</div><div>Action</div>
+    </div>
+    <ul data-bind="afterRender: initSortable">
+        <!-- ko foreach: elems() -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </ul>
+
+    <div class="buttonset">
+        <button class="action" data-bind="click: hideAll">Remove all</button>
+        <button class="action" data-bind="click: setDefault">Revert changes</button>
+    </div>
+</div>
+
+
